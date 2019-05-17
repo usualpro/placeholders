@@ -25,15 +25,13 @@ export default class Sections extends Component {
         </Suspense>
         return (
             <Router>
-                <div className="container-fluid">
-                    <UsersSelectorSection />
-                    {
-                        this.state.users.length &&
-                        <Switch>
-                            <Route path="/users/:userId" render={props => <UserDesc users={this.state.users} {...props} />} />
-                        </Switch>
-                    }
-                </div>
+                <UsersSelectorSection />
+                {
+                    (this.state.users.length > 0) &&
+                    <Switch>
+                        <Route path="/users/:userId" render={props => <UserDesc users={this.state.users} {...props} />} />
+                    </Switch>
+                }
             </Router>
         )
     }

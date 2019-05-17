@@ -7,19 +7,17 @@ const UserDesc = (props) => {
         /*address,
         albums,
         company,
-        email,
         name,
         phone,
         todos,*/
+        email,
         username/*,
         website*/
     } = user;
-    return <div>
-        <div>
-            <h4>description</h4>
-            {username}
-        </div>
-        <UserAlbums user={user}  />
+    return <div className="container-fluid">
+        <h4>{user.name} aka {username}</h4>
+        <h5>email: {email}</h5>
+        <UserAlbums user={user} />
     </div>
 }
 export default UserDesc;

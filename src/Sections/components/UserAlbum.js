@@ -16,12 +16,14 @@ export default class UserAlbum extends Component {
             this.setState({
                 photos: results.data,
                 albumId: Number(albumId)
-            })
-        })
+            });
+        });
     }
     componentDidUpdate(prevProps, prevState) {
-        if ((prevState.albumId !== null) && (this.props.match.params.albumId !== prevProps.match.params.albumId))
+        if ((prevState.albumId !== null) && (this.props.match.params.albumId !== prevProps.match.params.albumId)) {
             this.listPhotos();
+            document.querySelector('.UserPhoto').scrollTo(0, 0);
+        }
     }
     componentDidMount() {
         this.listPhotos();
@@ -31,7 +33,7 @@ export default class UserAlbum extends Component {
         let { albumId } = this.props.match.params;
         let album = this.props.user.albums.find((album) => (album.id === Number(albumId)));
         return <div>
-            <h4>{album.title} {album.id}</h4>
+            <h4>{album.title} par {this.props.user.username}</h4>
             <Suspense fallback={<LoadingIco />}>
                 <UserPhotos photos={this.state.photos} match={this.props.match} />
             </Suspense>

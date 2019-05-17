@@ -1,8 +1,12 @@
 @charset 'UTF-8';
+// Base
+@import 'base/helpers';
+
 // Vendors
-@import
-  'vendors/bootstrap.css';
+@import 'vendors/bootstrap.css';
 
 // Components
-@import
-  'components/Grid';
+@import 
+  'components/UserSelector', 
+  'components/UserPhotos', 
+  'components/UserAlbums';
