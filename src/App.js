@@ -1,4 +1,4 @@
 import React from 'react';
-import Grid from './Grid';
-const App = () => <Grid />
+import Sections from './Sections'
+const App = () => <Sections />
 export default App;

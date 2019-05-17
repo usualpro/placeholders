@@ -1,8 +1,9 @@
+import './stylesheets/main.scss';
 import React, { Component } from 'react';
-import "./stylesheets/main.scss";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Actions } from './services';
 
-export default class Grid extends Component {
+export default class Sections extends Component {
     constructor(props) {
         super(props);
         this.actions = new Actions();
@@ -12,10 +13,11 @@ export default class Grid extends Component {
     }
     async componentDidMount() {
         let users = await this.actions.getUsersWithTodosAndAlbums();
-        this.setState({ users })
+        this.setState({ users });
     }
     render() {
         return <div className="container-fluid">
+
             <div className="row">
                 {
                     this.state.users.map((user, index) => {
