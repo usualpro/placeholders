@@ -9,7 +9,7 @@ export class Actions {
         return this.getUsers().then(async (results) => {
             let todosRequests = results.data.map(user => this.getTodosByUserId(user.id));
             let allTodos = await all(todosRequests).then(spread((...args) => args.map((arg) => arg.data).flat()));
-            let allAlbums = await this.getAllAlbums()
+            let allAlbums = await this.getAllAlbums();
             allAlbums = allAlbums.data;
             /*let photosRequests = allAlbums.map(album => this.getPhotoAlbumById(album.id));
             let allPhotos = await all(photosRequests).then(spread((...args) => args.map((arg) => arg.data)));
