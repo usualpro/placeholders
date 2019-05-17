@@ -3,15 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
+    "concurrently": "^4.1.0",
+    "cypress": "^3.2.0",
+    "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.1",
+    "serve": "^11.0.0",
+    "wait-on": "^3.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start-dev-server": "serve build",
+    "runtests": "sh runtests.sh",
+    "test": "npm run build && concurrently -k \"npm run start-dev-server\" \" npm run runtests\""
   },
   "eslintConfig": {
     "extends": "react-app"
