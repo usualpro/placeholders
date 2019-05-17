@@ -11,10 +11,22 @@ export default class Grid extends Component {
         }
     }
     async componentDidMount() {
-        let { data } = await this.actions.getUsers();
-        this.actions.getStructuredData();
+        let users = await this.actions.getUsersWithTodosAndAlbums();
+        this.setState({ users })
     }
     render() {
-        return <div>Grid</div>
+        return <div className="container-fluid">
+            <div className="row">
+                {
+                    this.state.users.map((user, index) => {
+                        return <div key={index} className="col">
+                            username => {user.username}<br />
+                            albums.length => {user.albums.length}<br />
+                            todos.length => {user.todos.length}<br />
+                        </div>
+                    })
+                }
+            </div>
+        </div>
     }
 }
