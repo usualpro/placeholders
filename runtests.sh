@@ -4,4 +4,4 @@
 wait-on http://localhost:5000
 
 ## and now run cypress
-cypress run
+cypress run --browser chrome

@@ -17,10 +17,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build-test": "sh -ac '. ./.env.test; react-scripts build'",
     "eject": "react-scripts eject",
     "start-dev-server": "serve build",
     "runtests": "sh runtests.sh",
-    "test": "npm run build && concurrently -k \"npm run start-dev-server\" \" npm run runtests\""
+    "test": "npm run build-test && concurrently -k \"npm run start-dev-server\" \" npm run runtests\""
   },
   "eslintConfig": {
     "extends": "react-app"
