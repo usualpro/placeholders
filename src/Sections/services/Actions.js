@@ -1,11 +1,10 @@
 import { instance } from './instance';
 import { all, spread } from 'axios';
 export class Actions {
-
     getUsers = () => instance.get(`users`);
     getTodosByUserId = (id) => instance.get(`todos?userId=${id}`);
     getPhotoAlbumById = (id) => instance.get(`photos?albumId=${id}`);
-    getAllAlbums = () => instance.get(`users${(process.env.REACT_APP_API_ENV === 'test') ? '_' : ''}/1/albums`);
+    getAllAlbums = () => instance.get(`${process.env.REACT_APP_USERS_ROUTE}/1/albums`);
     getUsersWithTodosAndAlbums = () => {
         return this.getUsers().then(async (results) => {
             let todosRequests = results.data.map(user => this.getTodosByUserId(user.id));
